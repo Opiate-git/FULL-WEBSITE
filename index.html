@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Digital Mall - Portal</title>
+    <style>
+        :root {
+            --bg: #1a1a1a;
+            --secondary: #2d2d2d;
+            --accent: #8b0000;
+            --text: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Teenage Replica', sans-serif;
+            color: var(--text);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            /* Koyu kırmızıdan griye geçiş ve noktalar */
+            background: radial-gradient(#ffffff22 1px, transparent 1px), 
+                        linear-gradient(135deg, #8b0000 0%, #1a1a1a 100%);
+            background-size: 30px 30px, 100% 100%;
+        }
+
+        .container {
+            background-color: var(--secondary);
+            padding: 3rem; 
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+            width: 700px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+            background-image: url('logo.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain; 
+            
+            position: relative;
+        }
+        
+        h2 { 
+            color: var(--text); 
+            margin-bottom: 2rem; 
+            background: rgba(45,45,45,0.7); 
+            padding: 10px 20px; 
+            border-radius: 5px; 
+        }
+
+        input {
+            width: 80%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid var(--accent);
+            border-radius: 5px;
+            box-sizing: border-box;
+            background: rgba(255,255,255,0.9);
+        }
+
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 20px;
+            width: 80%;
+        }
+
+        button {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: opacity 0.3s;
+        }
+
+        button:hover { opacity: 0.8; }
+
+        .hidden { display: none; }
+        
+        .nav-link {
+            font-size: 1rem;
+            text-decoration: underline;
+            cursor: pointer;
+            margin-top: 15px;
+            display: inline-block;
+            background: rgba(0,0,0,0.5);
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="mainPage" class="container">
+        <h2>Digital Mall Login</h2>
+        <input type="email" placeholder="Email">
+        <input type="password" placeholder="Password">
+        <div class="btn-group">
+            <button onclick="alert('Logging in...')">Login</button>
+            <button onclick="showPage('signUpPage')">Sign Up</button>
+            <button onclick="showPage('managerPage')">Register (Manager)</button>
+        </div>
+    </div>
+
+    <div id="signUpPage" class="container hidden">
+        <h2>Customer Sign Up</h2>
+        <input type="text" placeholder="Full Name">
+        <input type="email" placeholder="Email">
+        <input type="password" placeholder="Password">
+        <input type="password" placeholder="Confirm Password">
+        <input type="text" placeholder="Address">
+        <div class="btn-group">
+            <button onclick="alert('Account Created!')">Create Account</button>
+            <span class="nav-link" onclick="showPage('mainPage')">Back to Login</span>
+        </div>
+    </div>
+
+    <div id="managerPage" class="container hidden">
+        <div style="background: var(--accent); color: white; padding: 10px; margin-bottom: 20px; border-radius: 4px; width: 80%;">
+            MANAGER REGISTRATION
+        </div>
+        <input type="text" placeholder="Full Name">
+        <input type="email" placeholder="Email">
+        <input type="password" placeholder="Password">
+        <input type="password" placeholder="Confirm Password">
+        <input type="text" placeholder="Address">
+        <div class="btn-group">
+            <button onclick="alert('Manager Registered!')">Register</button>
+            <button onclick="window.location.href='admin.html'">Login</button>
+        </div>
+    </div>
+    <script>
+        function showPage(pageId) {
+            document.getElementById('mainPage').classList.add('hidden');
+            document.getElementById('signUpPage').classList.add('hidden');
+            document.getElementById('managerPage').classList.add('hidden');
+            document.getElementById(pageId).classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
