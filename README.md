@@ -3,6 +3,7 @@
 Bu proje şu an aktif olarak geliştirilmektedir. Yakında yeni özellikler eklenecektir.
 
 ## Yapılacaklar (To-Do)
-- [ ] İletişim sayfasını bitir.
-- [ ] Mobil uyumluluğu kontrol et.
-- [ ] Logo tasarımını güncelle.
+- [ ] admin sayfasını güncelle
+- [ ] php tabloları güncelle
+
+
